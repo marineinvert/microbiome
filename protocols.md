@@ -1,6 +1,9 @@
-layout: page
-title: "Protocols"
-permalink: /protocols
+---
+layout: minimal
+title: Protocols
+parent: Home
+nav_order: 2
+---
 
 # Protocols Used by Project Participants
 
