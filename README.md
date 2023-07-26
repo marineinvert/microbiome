@@ -1,3 +1,9 @@
+---
+layout: default
+title: Readme
+nav_exclude: true
+---
+
 ## Welcome to the Marine Invertebrate Microbiome Project Website
 
 Microbes associated with marine invertebrates are of broad interest for establishing the rules of life for host-microbe associations. Although some marine invertebrates host only one or two types of microbes, others host thousands of different kinds of microbes. The project goal is to understand how and why particular microbes are hosted by invertebrates; whether the diversity of these microorganisms is related to the diversity of their hosts; and how these associations change over evolutionary time. The investigators are training graduate, undergraduate, and high school students how to assess microbiome diversity; how to use novel software to search, categorize, and compile data from DNA sequence archives; and how to identify and classify marine invertebrates. They are integrating graduate students and undergraduate students in the development of a high-school-based program to mentor students in the assessment of marine invertebrate biodiversity, training the next generation of scientists in invertebrate biology, host-microbe ecology, and evolutionary data analyses. In addition, research scientists are being trained to use novel data mining and compilation software to address unexplored questions in host-microbe evolution.
