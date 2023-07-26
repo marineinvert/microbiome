@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Protocols
-nav_order: "B"
+nav_order: 4
 has_children: true
 has_toc: false
 ---

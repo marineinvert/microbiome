@@ -1,7 +1,7 @@
 ---
 layout: default
 title: About
-nav_order: "C"
+nav_order: 4
 has_children: true
 has_toc: false
 ---
