@@ -3,6 +3,7 @@ layout: default
 title: Home
 nav_order: 100
 has_children: true
+has_toc: false
 ---
 
 ## Welcome to the Marine Invertebrate Microbiome Project Website
