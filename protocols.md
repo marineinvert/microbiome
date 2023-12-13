@@ -13,4 +13,4 @@ These range from sample collections to molecular sequence data generation.
 
 ## Field Protocols
 
-[Suspended Lines](_docs/Suspended Lines Protocol.pdf)
+[Suspended Lines](docs/Suspended_Lines_Protocol.pdf)
