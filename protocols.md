@@ -23,3 +23,13 @@ These range from sample collections to molecular sequence data generation.
 [Specimen Preservation](docs/Specimen_Preservation.pdf)
 
 [DNA Extraction with PowerSoil Pro Kit](docs/ThackerLab_PowerSoil_Pro_DNA_Extraction_Protocol.pdf)
+
+## PCR and Agarose Gel Electrophoresis Protocols
+
+[PCR Standard Protocol](docs/PCR_Standard_Protocol.pdf)
+
+[Use this template to organize 96-well plates](docs/template_96well.pptx)
+
+[Use these templates to organize PCR reactions](docs/PCR_Worksheet_Templates.xlsx)
+
+[Agarose Gel Electrophoresis Protocol](docs/Agarose_Gel_Electrophoresis.docx.pdf)
