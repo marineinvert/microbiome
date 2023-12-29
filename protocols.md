@@ -21,3 +21,5 @@ These range from sample collections to molecular sequence data generation.
 [Collecting Specimens from Settlement Plates](docs/Collecting_Specimens_from_Settlement_Plates.pdf)
 
 [Specimen Preservation](docs/Specimen_Preservation.pdf)
+
+[DNA Extraction with PowerSoil Pro Kit](docs/ThackerLab_PowerSoil_Pro_DNA_Extraction_Protocol.pdf)
