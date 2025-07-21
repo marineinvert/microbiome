@@ -8,5 +8,8 @@ has_toc: false
 
 # Resources Page 
 
-Here are various resources available as part of this project
+Resources developed as part of this project are shared here.
+
+## Resources for *Favia fragum*
+Distinct microbiomes of the scleractinian coral *Favia fragum* in mangrove and adjacent reef habitats in the Panamanian Caribbean
 
