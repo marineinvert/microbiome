@@ -12,6 +12,7 @@ Resources developed as part of this project are shared here.
 
 ## Resources for *Favia fragum*
 Distinct microbiomes of the scleractinian coral *Favia fragum* in mangrove and adjacent reef habitats in the Panamanian Caribbean
+Authors: Jose A Moscoso and Robert W Thacker
 
 [ReadMe](Favia_ReadMe.txt)
 
