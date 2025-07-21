@@ -1,0 +1,77 @@
+### This is the script used to demultiplex and trim raw sequencing files for the Favia fragum microbiomes project
+### You will need to customize for demultiplexing and trimming your own files. 
+
+### The output of this script are the demultiplexed read 1 and read 2 files available in 
+### Sequence Read Archive Submission # SUB13878240
+
+### The custom perl script for merging the index file with each read file is available in our GitHub page at
+### https://marineinvert.github.io/microbiomes/resources.html
+
+### Download files bash
+#!/bin/bash
+wget -q -c -O ###INSERT SEQUENCING FILE NAME_S1_I1_001.fastq.gz ###INSERT DOWNLOAD LINK FROM SEQUENCING CORE
+wget -q -c -O ###INSERT SEQUENCING FILE NAME_S1_R1_001.fastq.gz ###INSERT DOWNLOAD LINK FROM SEQUENCING CORE
+wget -q -c -O ###INSERT SEQUENCING FILE NAME_S1_R2_001.fastq.gz ###INSERT DOWNLOAD LINK FROM SEQUENCING CORE
+
+### Unzip files
+gunzip -k 1###INSERT SEQUENCING FILE NAME_S1_I1_001.fastq.gz ###INSERT SEQUENCING FILE NAME_S1_R1_001.fastq.gz ###INSERT SEQUENCING FILE NAME_S1_R2_001.fastq.gz
+
+### Merge Index file and Read 1 file using custom perl script "MergeMeCheck3.pl"
+
+perl MergeMeCheck3.pl ###INSERT SEQUENCING FILE NAME_S1_I1_001.fastq ###INSERT SEQUENCING FILE NAME_S1_R1_001.fastq
+
+### Rename "merged.fastq" file to Favia.I1.R1.merged.fastq
+
+### Merge Index file and Read 2 file using custom perl script "MergeMeCheck3.pl"
+
+perl MergeMeCheck3.pl ###INSERT SEQUENCING FILE NAME_S1_I1_001.fastq ###INSERT SEQUENCING FILE NAME_S1_R2_001.fastq
+
+### Rename "merged.fastq" file to Favia.I1.R2.merged.fastq
+
+### Trim low quality ends of reads using Trimmomatic
+
+java -jar ###INSERT DIRECTORY WHERE TRIMMOMATIC IS/Trimmomatic-0.39/trimmomatic-0.39.jar
+java -jar Trimmomatic-0.39/trimmomatic-0.39.jar PE Favia.I1.R1.merged.fastq Favia.I1.R2.merged.fastq \
+Favia.I1.R1.trim.fastq Favia.I1.R1.untrim.fastq \
+Favia.R2.trim.fastq Favia.R2.untrim.fastq \
+SLIDINGWINDOW:5:15 MINLEN:100 TRAILING:15
+
+### Trimmomatic output: 
+
+###TrimmomaticPE: Started with arguments:
+###Favia.I1.R1.merged.fastq Favia.I1.R2.merged.fastq Favia.I1.R1.trim.fastq Favia.I1.R1.untrim.fastq Favia.R2.trim.fastq ###Favia.R2.untrim.fastq SLIDINGWINDOW:5:15 MINLEN:100 TRAILING:15
+###Multiple cores found: Using 4 threads
+###Quality encoding detected as phred33
+###Input Read Pairs: 1125420 Both Surviving: 1028662 (91.40%) Forward Only Surviving: 21660 (1.92%) Reverse Only Surviving: ###61480 (5.46%) Dropped: 13618 (1.21%)
+###TrimmomaticPE: Completed successfully
+
+
+### Use cutadapt to demultiplex files 
+### the barcodes.fasta.txt is user supplied and should contain the sample names and the associated index sequences (Golay barcodes) in fasta format.
+
+conda create -n cutadaptenv cut-adapt
+conda activate cutadaptenv
+cutadapt -e 0.10 --no-indels -g file:barcodes.fasta.txt -o {name}_R1.fastq -p {name}_R2.fastq
+Favia.I1.R1.trim.fastq Favia.R2.trim.fastq 1> forwards.summary.txt
+
+###Cutadapt output
+
+###This is cutadapt 4.1 with Python 3.10.6
+###Command line parameters: -e 0.10 --no-indels -g file:barcodes.fasta.txt -o {name}_R1.fastq -p {name}_R2.fastq Favia.I1.R1.trim.fastq Favia.R2.trim.fastq
+###Building index of 39 adapters ...
+###Built an index containing 1443 strings.
+###Processing paired-end reads on 1 core ...
+###Finished in 14.46 s (14 µs/read; 4.27 M reads/minute).
+
+###=== Summary ===
+
+###Total read pairs processed:          1,028,662
+###  Read 1 with adapter:                 715,636 (69.6%)
+###Pairs written (passing filters):     1,028,662 (100.0%)
+
+###Total basepairs processed:   518,601,663 bp
+###  Read 1:   256,185,130 bp
+###  Read 2:   262,416,533 bp
+###Total written (filtered):    510,014,031 bp (98.3%)
+###  Read 1:   247,597,498 bp
+###  Read 2:   262,416,533 bp
